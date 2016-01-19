@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>user-input-keyboard - User Test</title>
+    <script src="../build/module.js"></script>
+</head>
+<body style="background-color: #222">
+
+<div id="output" style="position: fixed; left: 50%; top: 20%; margin-left: -150px;
+                            width: 300px; background-color: #444;
+                            color: #ccc; font-size: 12pt; padding: 20px;">
+</div>
+
+<script type="text/javascript">
+    var keyboard = window.keyboardInput(document) // Default target is `document.body`
+    keyboard.input.on("keydown", handleKeyEvent)
+    keyboard.input.on("keyup", handleKeyEvent)
+    function handleKeyEvent(e) {
+        document.getElementById("output").innerHTML = "<pre style='margin: 0'>" + JSON.stringify(convert(keyboard), null, 2) + "</pre>"
+    }
+
+    function convert(obj) {
+        var newObj = {};
+        var ignore = [
+            "input"
+        ]
+        for (var key in obj) {
+            if (!obj.hasOwnProperty(key)) continue
+            if (ignore.indexOf(key) >= 0) continue
+            newObj[key] = obj[key]
+        }
+        return newObj
+    }
+</script>
+
+</body>
+</html>

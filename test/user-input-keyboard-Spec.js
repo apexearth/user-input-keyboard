@@ -11,15 +11,15 @@ describe("user-input-keyboard.js", function () {
 
     it("modifies values for keydown and keyup", function () {
         var keyboard = keyboardInput()
-        var key      = 'A'
+        var key      = '<tab>'
 
         expect(keyboard.value(key)).toEqual(0)
 
         keyboard.input.emit('keydown', key)
-        expect(keyboard.value(key)).toEqual(1)
+        expect(keyboard[key]).toEqual(1)
 
         keyboard.input.emit('keyup', key)
-        expect(keyboard.value(key)).toEqual(0)
+        expect(keyboard[key]).toEqual(0)
     })
 
 })
