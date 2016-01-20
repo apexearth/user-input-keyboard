@@ -14,12 +14,12 @@ function keyboardInput(target) {
 function KeyboardInput(input) {
     var that = this;
     EventEmitter.call(this, input)
-    this.input = input
+    this._input = input
 
-    this.input.on('keydown', function (key) {
+    this._input.on('keydown', function (key) {
         that[key] = 1;
     })
-    this.input.on('keyup', function (key) {
+    this._input.on('keyup', function (key) {
         that[key] = 0;
     })
 }

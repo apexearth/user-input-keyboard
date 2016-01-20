@@ -15,8 +15,8 @@
 
 <script type="text/javascript">
     var keyboard = window.keyboardInput(document); // Default target is `document.body`
-    keyboard.input.on("keydown", handleKeyEvent);
-    keyboard.input.on("keyup", handleKeyEvent);
+    keyboard._input.on("keydown", handleKeyEvent);
+    keyboard._input.on("keyup", handleKeyEvent);
     function handleKeyEvent(e) {
         document.getElementById("output").innerText = "keyboard == " + JSON.stringify(convert(keyboard), null, 2)
     }
@@ -24,7 +24,7 @@
     function convert(obj) {
         var newObj = {};
         var ignore = [
-            "input", "_events"
+            "_input", "_events"
         ];
         for (var key in obj) {
             if (!obj.hasOwnProperty(key)) continue;

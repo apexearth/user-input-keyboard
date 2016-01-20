@@ -5,7 +5,7 @@ describe("user-input-keyboard.js", function () {
 
     it("has default members", function () {
         var input = keyboardInput()
-        expect(input.input).toExist()
+        expect(input._input).toExist()
     })
 
     it("modifies values for keydown and keyup", function () {
@@ -14,10 +14,10 @@ describe("user-input-keyboard.js", function () {
 
         expect(keyboard[key]).toNotExist()
 
-        keyboard.input.emit('keydown', key)
+        keyboard._input.emit('keydown', key)
         expect(keyboard[key]).toEqual(1)
 
-        keyboard.input.emit('keyup', key)
+        keyboard._input.emit('keyup', key)
         expect(keyboard[key]).toEqual(0)
     })
 
