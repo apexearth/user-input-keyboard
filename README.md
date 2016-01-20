@@ -13,7 +13,7 @@ Useful for applications which require tracking of key states.
 
 [![NPM](https://nodei.co/npm/user-input-keyboard.png)](https://nodei.co/npm/user-input-keyboard/)
 
-### Examples
+### Example
 
     var keyboard = window.keyboardInput(document)
 
