@@ -5,7 +5,9 @@
 ![](http://img.shields.io/npm/dm/user-input-keyboard.svg?style=flat)
 ![](http://img.shields.io/npm/l/user-input-keyboard.svg?style=flat)
 
-Base class for creating user inputs.
+Keyboard input tracking as 0 or 1. 
+
+Useful for applications which require tracking of key states.
 
 ## Usage
 
@@ -13,9 +15,26 @@ Base class for creating user inputs.
 
 ### Examples
 
+    var keyboard = window.keyboardInput(document)
 
+When the user presses "A", keyboard would contain the following.
+
+    {
+        "A": 1
+    }
+
+When the user releases "A", and then presses "F", keyboard would contain the following.
+
+    {
+        "A": 0,
+        "F": 1
+    }
 
 ## Tests
 
 - Mocha
-   - Test functionality in Node.js
+    - Test functionality in Node.js
+    - `npm test`
+- User Test
+    - Test functionality in browser.
+    - `npm user-test`
