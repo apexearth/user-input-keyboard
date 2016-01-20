@@ -6,9 +6,10 @@
 </head>
 <body style="background-color: #222">
 
-<div style="position: fixed; left: 50%; top: 20%; margin-left: -150px;
-                            width: 300px; background-color: #444;
+<div style="position: fixed; left: 50%; top: 20%; margin-left: -300px;
+                            width: 600px; background-color: #444;
                             color: #ccc; font-size: 12pt; padding: 20px;">
+    <pre>var keyboard = window.keyboardInput(document)</pre>
     <pre id="output" style='margin: 0'></pre>
 </div>
 
@@ -17,13 +18,13 @@
     keyboard.input.on("keydown", handleKeyEvent);
     keyboard.input.on("keyup", handleKeyEvent);
     function handleKeyEvent(e) {
-        document.getElementById("output").innerText = JSON.stringify(convert(keyboard), null, 2)
+        document.getElementById("output").innerText = "keyboard == " + JSON.stringify(convert(keyboard), null, 2)
     }
 
     function convert(obj) {
         var newObj = {};
         var ignore = [
-            "input"
+            "input", "_events"
         ];
         for (var key in obj) {
             if (!obj.hasOwnProperty(key)) continue;
