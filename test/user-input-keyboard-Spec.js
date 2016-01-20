@@ -5,7 +5,6 @@ describe("user-input-keyboard.js", function () {
 
     it("has default members", function () {
         var input = keyboardInput()
-        expect(input.values).toExist()
         expect(input.input).toExist()
     })
 
@@ -13,7 +12,7 @@ describe("user-input-keyboard.js", function () {
         var keyboard = keyboardInput()
         var key      = '<tab>'
 
-        expect(keyboard.value(key)).toEqual(0)
+        expect(keyboard[key]).toNotExist()
 
         keyboard.input.emit('keydown', key)
         expect(keyboard[key]).toEqual(1)

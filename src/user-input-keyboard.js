@@ -1,6 +1,6 @@
 var util      = require("util")
 var keyboard  = require("key-events")
-var UserInput = require("user-input");
+var EventEmitter = require("events").EventEmitter;
 
 var browser = require("./browser.js")
 
@@ -13,7 +13,8 @@ function keyboardInput(target) {
 
 function KeyboardInput(input) {
     var that = this;
-    UserInput.call(this, input)
+    EventEmitter.call(this, input)
+    this.input = input
 
     this.input.on('keydown', function (key) {
         that[key] = 1;
@@ -22,4 +23,4 @@ function KeyboardInput(input) {
         that[key] = 0;
     })
 }
-util.inherits(KeyboardInput, UserInput)
+util.inherits(KeyboardInput, EventEmitter)

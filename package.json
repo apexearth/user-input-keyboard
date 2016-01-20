@@ -36,7 +36,6 @@
     "openurl": "^1.1.0"
   },
   "dependencies": {
-    "key-events": "0.0.3",
-    "user-input": "0.0.2"
+    "key-events": "0.0.3"
   }
 }
