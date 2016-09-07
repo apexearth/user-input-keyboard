@@ -1,6 +1,6 @@
 {
   "name": "user-input-keyboard",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Keyboard input tracking as 0 or 1.",
   "main": "src/user-input-keyboard.js",
   "directories": {
