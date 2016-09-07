@@ -24,6 +24,10 @@ function KeyboardInput(input) {
     this._input.on('keyup', function (key) {
         that[key] = 0;
     })
+    this.set = function (key, value) {
+        if (keys.indexOf(key) === -1) keys.push(key);
+        that[key] = value;
+    }
     this.clear = function () {
         for (var i = 0; i < keys.length; i++) {
             that[keys[i]] = 0;

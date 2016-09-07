@@ -8,7 +8,7 @@ describe("user-input-keyboard.js", function () {
         expect(input._input).toExist()
     })
 
-    it("modifies values for keydown and keyup", function () {
+    it("keydown and keyup events", function () {
         var keyboard = keyboardInput()
         var key      = '<tab>'
 
@@ -21,10 +21,22 @@ describe("user-input-keyboard.js", function () {
         expect(keyboard[key]).toEqual(0)
     })
 
-    it("can clear all values back to zero", function () {
+    it(".set(key, value)", function () {
+        var keyboard = keyboardInput()
+        var key = '<tab>'
+
+        expect(keyboard[key]).toNotExist()
+
+        keyboard.set(key, 5)
+        expect(keyboard[key]).toEqual(5)
+        keyboard.set(key, 0)
+        expect(keyboard[key]).toEqual(0)
+    })
+
+    it(".clear()", function () {
         var keyboard = keyboardInput()
         keyboard._input.emit('keydown', 'A')
-        keyboard._input.emit('keydown', 'B')
+        keyboard.set('B', 1)
         expect(keyboard['A']).toEqual(1)
         expect(keyboard['B']).toEqual(1)
         keyboard.clear();
