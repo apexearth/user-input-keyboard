@@ -1,6 +1,6 @@
 {
   "name": "user-input-keyboard",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Keyboard input tracking as 0 or 1.",
   "main": "src/user-input-keyboard.js",
   "directories": {
@@ -32,6 +32,7 @@
     "grunt-contrib-clean": "^0.7.0",
     "grunt-contrib-connect": "^0.11.2",
     "grunt-open": "^0.2.3",
+    "key-events": "0.0.3",
     "mocha": "^2.3.4",
     "openurl": "^1.1.0"
   },

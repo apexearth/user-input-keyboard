@@ -17,18 +17,30 @@ Useful for applications which require tracking of key states.
 
     var keyboard = window.keyboardInput(document)
 
-When the user presses "A", keyboard would contain the following.
+When the user presses "A", keyboard will contain the following.
 
     {
         "A": 1
     }
 
-When the user releases "A", and then presses "F", keyboard would contain the following.
+When the user releases "A", and then presses "F", keyboard will contain the following.
 
     {
         "A": 0,
         "F": 1
     }
+
+### Intercepting Events
+
+Events can be intercepted using the `afterEvent` option.
+
+    var keyboard = window.keyboardInput(document, {
+        afterEvent: (key, event) => {
+            // key   === vkey string of key pressed
+            // event === original keyboard event
+        }
+    })
+
 
 ## Tests
 

@@ -21,6 +21,25 @@ describe("user-input-keyboard.js", function () {
         expect(keyboard[key]).toEqual(0)
     })
 
+    it("options.afterEvent", function () {
+        var afterEvent  = {}
+        var eventObject = {}
+        var keyboard    = keyboardInput(undefined, {
+            afterEvent: (key, event) => {
+                afterEvent.key   = key
+                afterEvent.event = event
+            }
+        })
+
+        keyboard._input.emit('keydown', '<tab>', eventObject)
+        expect(afterEvent.key).toEqual('<tab>')
+        expect(afterEvent.event).toEqual(eventObject)
+
+        keyboard._input.emit('keyup', '<control>', eventObject)
+        expect(afterEvent.key).toEqual('<control>')
+        expect(afterEvent.event).toEqual(eventObject)
+    })
+
     it(".set(key, value)", function () {
         var keyboard = keyboardInput()
         var key = '<tab>'
